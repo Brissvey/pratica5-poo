@@ -18,7 +18,7 @@ class Carrito {
 
     agregarProducto(producto: Producto, cantidad: number): void {
         if (cantidad <= 0) {
-            throw new Error("La cantidad debe ser mayor a 0");
+            throw new Error("La cantidad debe ser positiva");
         }
 
         const itemExistente = this.items.find(
@@ -40,7 +40,7 @@ class Carrito {
         );
 
         if (index === -1) {
-            throw new Error("Producto no encontrado en el carrito");
+            throw new Error("no hay producto en el carrito");
         }
 
         this.items.splice(index, 1);
@@ -68,9 +68,9 @@ class Carrito {
 
 
 const Compra = new Carrito();
-const producto1 = new Producto("Laptop", 800);
-const producto2 = new Producto("Mouse", 25);
-const producto3 = new Producto("Teclado", 50);
+const producto1 = new Producto("ps5", 800);
+const producto2 = new Producto("control", 25);
+const producto3 = new Producto("headphone", 50);
 
 Compra.agregarProducto(producto1, 1);
 Compra.agregarProducto(producto2, 2);
